@@ -38,7 +38,7 @@ export class PainelComponent implements OnInit, OnDestroy {
   
   public verificarResposta(): void {
 
-    if(this.rodadaFrase.frasePtBr == this.resposta) {
+    if(this.rodadaFrase.frasePtBr.toLowerCase() == this.resposta.toLowerCase()) {
       //Trocar pergunta da rodada
       this.rodada++
       
@@ -53,7 +53,7 @@ export class PainelComponent implements OnInit, OnDestroy {
       //Diminuir a variável tentativas
       this.tentativas--
 
-      if(this.tentativas === -1) {
+      if(this.tentativas === 0) {
         this.encerrarJogo.emit('derrota')
       }
     }
